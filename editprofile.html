@@ -157,12 +157,14 @@
           </div>
         </div>
         <script>
+          
           function show() {
             var value = document.getElementById("demo").value;
             if (value != "Select Color") {
-                document.bgColor = value;
+              document.bgColor = value;
+              document.cookie = "BgColor = " + value;
             }
-        }
+          }
           function save_data() {
             var input = document.getElementById("saveServer").value;
             localStorage.setItem("server", input);
@@ -199,7 +201,7 @@
             }
           }
           function DelCookie() {
-            if (document.cookie != "") window.alert("Cookie Present");
+            if (document.cookie != "") window.alert("Cookie was Present");
             {
               document.cookie = "";
               var username = document.getElementById("username").value;
@@ -213,7 +215,7 @@
               document.cookie = "Email = " + "";
               document.cookie = "Password = " + "";
               document.cookie = "PhoneNumber = " + "";
-              document.cookie = "expires=" + now.toUTCString() + ";";
+              document.cookie = "expires= " +""+ now.toUTCString() + ";";
               window.alert("Cookie Deleted");
             }
           }
@@ -243,8 +245,8 @@
                   <label>Email</label><br />
                   <input type="mail" name="" id="email" class="name" /><br />
                 </div>
-                <br/>
-                
+                <br />
+
                 <input
                   type="submit"
                   value="Store cookie"
@@ -273,14 +275,16 @@
                   onclick="DelCookie()"
                   id="button"
                 />
-                <p>Select the color <select id="demo" onchange="show()">
-                  <option value="red">Select Color</option>
-                  <option value="BBC9FA">Blue</option>
-                  <option value="BBFADD">Green</option>
-                  <option value="FABBF5d">Pink</option>
-              </select></p>
-  
-              </form>   
+                <p>
+                  Select the color
+                  <select id="demo" onchange="show()">
+                    <option value="#FF0000" onselect="show()">Select Color</option>
+                    <option value="#00F100" onselect="show()">Green</option>
+                    <option value="#08E1D7" onselect="show()">Cyan</option>
+                    <option value="#800080" onselect="show()">Purple</option>
+                  </select>
+                </p>
+              </form>
             </div>
           </div>
         </div>
